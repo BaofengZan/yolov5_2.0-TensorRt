@@ -3,7 +3,7 @@ U版yolov5 2.0的tensorrt加速
 
 
 
-并且对resize和图像处理阶段的操作左右优化，再win环境下debug下速度有很大提升，但是release则没有变化，因为在release时，opencv中会有相应的优化操作。
+并且对resize和图像处理阶段的操作做了优化，在win环境下debug下速度有很大提升，但是release则没有变化，因为在release时，opencv中会有相应的优化操作。
 
 ```
 实际上，at操作符与ptr操作符在Debug版本下都是有内存检查、防止操作越界的操作，而data十分简单粗暴，没有任何检查，由于它的简单粗暴所以使得data操作速度很快。所以在Debug版本下，at操作符与ptr操作符相较于data，速度还是慢了不少。
